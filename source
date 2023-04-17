@@ -1,0 +1,142 @@
+-- Loop through all GUI elements in CoreGui
+for _, gui in pairs(game:GetService("CoreGui"):GetChildren()) do
+    -- Check if the GUI is a ScreenGui and has a specific name
+    if gui:IsA("ScreenGui") and string.match(gui.Name, "_OhAnthonioMyAnthonio") then
+        -- Destroy the GUI element
+        gui:Destroy()
+    end
+end
+
+-- Create a table to hold new GUI elements
+local Converted = {
+    -- Create a ScreenGui
+    ["_EnergeticV"] = Instance.new("ScreenGui");
+    -- Create a Frame
+    ["_EnergeticV;Preloading"] = Instance.new("Frame");
+    -- Create a UICorner
+    ["_UICorner"] = Instance.new("UICorner");
+    -- Create an ImageButton
+    ["_sync"] = Instance.new("ImageButton");
+    -- Create a UIStroke
+    ["_UIStroke"] = Instance.new("UIStroke");
+    -- Create another Frame
+    ["_EnergeticV;Watermark"] = Instance.new("Frame");
+    -- Create another UICorner
+    ["_UICorner1"] = Instance.new("UICorner");
+    -- Create another ImageButton
+    ["_done"] = Instance.new("ImageButton");
+    -- Create another UIStroke
+    ["_UIStroke1"] = Instance.new("UIStroke");
+}
+
+-- Define two functions for protection and randomization
+
+-- Protect the main ScreenGui if the 'syn' library is available
+function protectMain()
+    if syn then
+        syn.protect_gui(Converted["_EnergeticV"])
+    end
+end
+
+-- Generate a random name for the main ScreenGui
+function randomization()
+    return tostring(math.random(0, 9)..math.random(0, 9)..math.random(0, 9)..math.random(0, 9)..math.random(0, 9)..math.random(0, 9)..math.random(0, 9)..math.random(0, 9)..math.random(0, 9)..math.random(0, 9)..math.random(0, 9).."_OhAnthonioMyAnthonio")
+end
+
+-- Set properties for the main ScreenGui
+Converted["_EnergeticV"].ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Converted["_EnergeticV"].Name = randomization()
+Converted["_EnergeticV"].Parent = game:GetService("CoreGui")
+
+-- Set properties for the 'Preloading' Frame
+Converted["_EnergeticV;Preloading"].BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_EnergeticV;Preloading"].Position = UDim2.new(0.977542937, -55, 0.965863466, -55)
+Converted["_EnergeticV;Preloading"].Size = UDim2.new(0, 50, 0, 50)
+Converted["_EnergeticV;Preloading"].Name = "EnergeticV;Preloading"
+Converted["_EnergeticV;Preloading"].Parent = Converted["_EnergeticV"]
+
+-- Set properties for the UICorner
+Converted["_UICorner"].CornerRadius = UDim.new(1, 0)
+Converted["_UICorner"].Parent = Converted["_EnergeticV;Preloading"]
+
+-- Set properties for the ImageButton
+Converted["_sync"].Image = "rbxassetid://3926305904"
+Converted["_sync"].ImageRectOffset = Vector2.new(884, 244)
+Converted["_sync"].ImageRectSize = Vector2.new(36, 36)
+Converted["_sync"].BackgroundTransparency = 1
+Converted["_sync"].LayoutOrder = 4
+Converted["_sync"].Position = UDim2.new(0.246060595, 0, 0.246060595, 0)
+Converted["_sync"].Size = UDim2.new(0, 25, 0, 25)
+Converted["_sync"].ZIndex = 2
+Converted["_sync"].Name = "sync"
+Converted["_sync"].Parent = Converted["_EnergeticV;Preloading"]
+
+-- Set properties for the UIStroke
+Converted["_UIStroke"].ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+Converted["_UIStroke"].Color = Color3.fromRGB(255, 255, 255)
+Converted["_UIStroke"].Parent = Converted["_EnergeticV;Preloading"]
+
+-- Wait until game is loaded.
+repeat task.wait() until game:IsLoaded()
+-- Wait until everything loads
+repeat task.wait() until game:GetService("Players") and game:GetService("Players").LocalPlayer and game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid")
+
+local Services = {}
+
+local Start = os.clock()
+
+-- pcall troll
+for i,v in pairs(game:GetChildren()) do
+	pcall(function()
+		Services[v.Name] = v
+	end)
+end
+
+local PlayerGui = game:GetService("Players").LocalPlayer:FindFirstChildOfClass("PlayerGui")
+
+game:GetService("ContentProvider"):PreloadAsync(PlayerGui:GetDescendants())
+
+-- Preload Services {}
+for Name,Service in pairs(Services) do
+	if #Service:GetDescendants() > 1 then
+		local ServiceStart = os.clock()
+		game:GetService("ContentProvider"):PreloadAsync(Service:GetDescendants())
+	end
+end
+
+task.wait(2.5)
+
+-- Preload all
+game:GetService("ContentProvider"):PreloadAsync(game:GetDescendants())
+
+-- Set properties for the Frame
+Converted["_EnergeticV;Watermark"].BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Converted["_EnergeticV;Watermark"].Position = UDim2.new(0.977542937, -55, 0.965863466, -55)
+Converted["_EnergeticV;Watermark"].Size = UDim2.new(0, 50, 0, 50)
+Converted["_EnergeticV;Watermark"].Visible = true
+Converted["_EnergeticV;Watermark"].Name = "EnergeticV;Watermark"
+Converted["_EnergeticV;Watermark"].Parent = Converted["_EnergeticV"]
+
+-- Set properties for the UICorner
+Converted["_UICorner1"].CornerRadius = UDim.new(1, 0)
+Converted["_UICorner1"].Parent = Converted["_EnergeticV;Watermark"]
+
+-- Set properties for the ImageButton
+Converted["_done"].Image = "rbxassetid://3926305904"
+Converted["_done"].ImageRectOffset = Vector2.new(644, 204)
+Converted["_done"].ImageRectSize = Vector2.new(36, 36)
+Converted["_done"].BackgroundTransparency = 1
+Converted["_done"].LayoutOrder = 3
+Converted["_done"].Position = UDim2.new(0.246060595, 0, 0.246060595, 0)
+Converted["_done"].Size = UDim2.new(0, 25, 0, 25)
+Converted["_done"].ZIndex = 2
+Converted["_done"].Name = "done"
+Converted["_done"].Parent = Converted["_EnergeticV;Watermark"]
+Converted["_done"].MouseButton1Click:Connect(function()
+	Converted["_EnergeticV"]:Destroy() --@exit
+end)
+
+-- Set properties for the UIStroke
+Converted["_UIStroke1"].ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+Converted["_UIStroke1"].Color = Color3.fromRGB(81.00000277161598, 255, 0)
+Converted["_UIStroke1"].Parent = Converted["_EnergeticV;Watermark"]
