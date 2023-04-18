@@ -1,3 +1,6 @@
+-- Patch
+task.wait(1)
+
 -- Loop through all GUI elements in CoreGui
 for _, gui in pairs(game:GetService("CoreGui"):GetChildren()) do
     -- Check if the GUI is a ScreenGui and has a specific name
